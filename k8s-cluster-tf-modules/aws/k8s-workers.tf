@@ -45,7 +45,7 @@ resource "aws_security_group" "k8s-worker-sg" {
 resource "aws_instance" "k8s-nodes" {
   count                       = var.node_count
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t2.micro"
+  instance_type               = var.instance_type
   key_name                    = var.cluster_key_pair
   associate_public_ip_address = true
 
